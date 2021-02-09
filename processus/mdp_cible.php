@@ -21,16 +21,14 @@ session_start();
       $verif = $req->fetch();
       $req->closeCursor();
       
+      $id_user=$verif['id_user'];
+      
       // Comparaison de la réponse saisie ($_POST) avec la bdd - si la réponse à la questions secrète correspond
     
      if ($response === $verif['response']) 
      {
-        $_SESSION['id_user'] = $id_user;
-        $_SESSION['username'] = $username;
-        $_SESSION['name'] = $name;
-        $_SESSION['forname'] = $forname;
-        $_SESSION['connecté'] = True;
-      header('Location: ..\pages\mdp_nouveau_index.php');
+     
+      header('Location: ..\pages\mdp_nouveau_index.php?id_user='.$id_user);
       }
       else
       {

@@ -24,7 +24,7 @@ session_start();
             {
             $_SESSION['id_actor'] = $_GET['id_actor'];
             $id_actor=$_SESSION['id_actor'];
-            $req=$bdd->prepare('SELECT * FROM actors where id_actor = :id_actor');
+            $req=$bdd->prepare('SELECT * FROM actors WHERE id_actor = :id_actor');
             $req->execute(array('id_actor'=>$id_actor));
             $donnees=$req->fetch();
 
@@ -36,7 +36,7 @@ session_start();
           </section>
 
           <!--insertion d'un commentaire à l'aide d'un formulaire-->
-          <section id="comment">
+          <section id="insert_comment">
             <form action="..\processus\insert_comment.php" method="post">                
             <div class="post"><label>Commentaires<input type="text" placeholder="Saisissez votre commentaire" name="post" class="champ_saisie"></label></div>
             <p><input type="submit" value="Validez votre commentaire"/></a></p>
@@ -45,8 +45,12 @@ session_start();
           </section>
 
             <!--affichage des 10 dernierscommentaires-->
+            <section id="view__comment">
             <?php
-            $req = $bdd->query('SELECT * FROM posts NATURAL JOIN account ORDER BY date_add DESC LIMIT 0, 10');
+            $req = $bdd->prepare('SELECT * FROM posts NATURAL JOIN account WHERE id_actor = :id_actor ORDER BY id_user DESC LIMIT 0, 10');
+            $req->execute(array(
+              'id_actor'=> $id_actor
+            ));
             while ($donnees = $req->fetch())
             {
             echo $donnees['forname']; 
@@ -54,7 +58,21 @@ session_start();
             echo nl2br(htmlspecialchars($donnees['post']));  
             }   
             ?>
+<section id="votes">
+            <form action="..\processus\insert_votes.php" method="post">  
+            </div>
+            <div class="vote_btns">
+              <button class="vote_btn vote_like"><i class="far fa-thumbs-up">75</i></button>
+              <button class="vote_btn vote_dislike"><i class="far fa-thumbs-down">25</i></button>
+            </div>
+            
+            <?php
+            $req=$bdd->prepare('SELECT * FROM votes where id_actor = :id_actor');
+            $req->execute(array('id_actor'=>$id_actor));
+            $donnees=$req->fetch();
+            ?>
 
+</section>   
         </section>
         
         <?php include("..\communs\Footer.php");?>

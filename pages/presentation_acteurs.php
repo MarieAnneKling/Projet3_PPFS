@@ -57,7 +57,7 @@ session_start();
 
                     <?php
 
-                    if(isset( $_SESSION['message']))
+                    if(isset($_SESSION['message']))
                     {
                         echo '<p style="color:green">'.$_SESSION['message'].'</p>';
                      }

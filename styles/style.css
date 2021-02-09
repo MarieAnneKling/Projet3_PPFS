@@ -111,12 +111,12 @@ text-align: center;
 {
   display: inline-block;
   margin-left: 20px;
+  font-size: 20px;
 }
 
 .vote_like
 {
 background-color:#63b96b;
-border: none;
 }
 .vote_dislike
 {
