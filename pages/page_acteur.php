@@ -19,7 +19,6 @@ session_start();
                       
         <section id="actor_presentation">
             <div class= "actor">
-            
             <?php
             if (isset($_GET['id_actor']))
             {
@@ -29,57 +28,30 @@ session_start();
             $req->execute(array('id_actor'=>$id_actor));
             $donnees=$req->fetch();
 
-
             echo '<img class="img_actor" src='.$donnees["logo"].'>';
             echo '<h2>' .$donnees["actor_name"]. '</h2>' ; ?>
             <div class="actor_description"><?php echo '<p>' .$donnees["description"]. '</p></div>';
             }
             ?>
-        </section>
+          </section>
 
-        <section id="votes">
-            <form action="..\processus\insert_votes.php" method="post">  
-            </div>
-            <div class="vote_btns">
-              <button class="vote_btn vote_like"><i class="far fa-thumbs-up">75</i></button>
-              <div class="vote_btn vote_dislike"><i class="far fa-thumbs-down">25</i></div>
-            </div>
-            
-            <?php
-            $req=$bdd->prepare('SELECT * FROM votes where id_actor = :id_actor');
-            $req->execute(array('id_actor'=>$id_actor));
-            $donnees=$req->fetch();
-
-        ?>
-            
-
-
-
-
-        </section>  
-        <section id="comments">
-             
+          <!--insertion d'un commentaire à l'aide d'un formulaire-->
+          <section id="comment">
             <form action="..\processus\insert_comment.php" method="post">                
-            <p class="post"><label>Commentaires<input type="text" placeholder="Saisissez votre commentaire" name="post" class="champ_saisie"></label></p>
+            <div class="post"><label>Commentaires<input type="text" placeholder="Saisissez votre commentaire" name="post" class="champ_saisie"></label></div>
             <p><input type="submit" value="Validez votre commentaire"/></a></p>
             </form>
-            
-            <?php
-            
-            $req = $bdd->query('SELECT * FROM posts NATURAL JOIN account ORDER BY date_add DESC LIMIT 0, 10');
+            </div>
+          </section>
 
+            <!--affichage des 10 dernierscommentaires-->
+            <?php
+            $req = $bdd->query('SELECT * FROM posts NATURAL JOIN account ORDER BY date_add DESC LIMIT 0, 10');
             while ($donnees = $req->fetch())
             {
-
-            ?>
-            <div class="commentaires">
-            <p><?php echo $donnees['forname']; ?></p>
-            <p>le <?php echo $donnees['date_add']; ?></p>
-            <p>
-
-            <?php
-            // On affiche le contenu du post
-            echo nl2br(htmlspecialchars($donnees['post']));
+            echo $donnees['forname']; 
+            echo $donnees['date_add'];
+            echo nl2br(htmlspecialchars($donnees['post']));  
             }   
             ?>
 
