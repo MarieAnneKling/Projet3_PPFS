@@ -59,18 +59,17 @@ session_start();
             }   
             ?>
 <section id="votes">
-            <form action="..\processus\insert_votes.php" method="post">  
-            </div>
+           <!--Insertion d'un vote--> 
+                      
             <div class="vote_btns">
-              <button class="vote_btn vote_like"><i class="far fa-thumbs-up">75</i></button>
-              <button class="vote_btn vote_dislike"><i class="far fa-thumbs-down">25</i></button>
+              <a href="..\processus\insert_votes.php?id_user=$id_user&id_actor=$id_actor&vote=1">
+              <button class="vote_btn vote_like"><i class="far fa-thumbs-up"></i></a>
+              </button>
+                           
+              <a href="..\processus\insert_votes.php?id_user=$id_user&id_actor=$id_actor&vote=0">
+              <button class="vote_btn vote_dislike"><i class="far fa-thumbs-down"></i></a></button>
             </div>
-            
-            <?php
-            $req=$bdd->prepare('SELECT * FROM votes where id_actor = :id_actor');
-            $req->execute(array('id_actor'=>$id_actor));
-            $donnees=$req->fetch();
-            ?>
+                        
 
 </section>   
         </section>
