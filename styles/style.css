@@ -1,0 +1,146 @@
+ 
+ *
+{
+  font-family: century gothic,sans-serif;
+  color:black;
+}
+
+header
+{
+  background-color: #f0f0f0;
+  padding-bottom: 7px;
+  border-bottom: 3px double #E90707;
+  text-align: center;
+}
+
+.titre_gbaf,h1,h2
+{
+  text-align: center;
+}
+
+
+
+.actor_description
+{
+  display:flex;
+  flex-direction: column;
+}
+
+.champ_saisie
+{
+width: 100%;
+text-align: center;
+border: 1px solid black;
+background-color: #FEF8F0;
+height: 30px;
+border-radius: 5px;
+box-shadow: 3px 3px 5px silver;
+}
+
+.champ_saisie:hover
+{
+  cursor: pointer;
+}
+
+
+label
+{
+  font-weight: bold;
+}
+
+
+#formulaire
+{
+display:flex;
+flex-direction: column;
+align-content: stretch;
+text-align: center;
+}
+
+}
+
+#presentation
+{
+  display: flex;
+  
+}
+
+#illustration
+{
+text-align: center;
+}
+.actor
+{
+ display: flex; 
+ flex-direction: column;
+
+}
+
+.img_actor
+{
+  text-align: center;
+  width: 10%;
+  height: auto;
+}
+.actors_list
+{
+  display: inline-block;
+}
+
+.actor_description
+{
+  text-align: justify;
+}
+
+.votes
+{
+  width: 150px
+  margin: 50px 0;
+  float: right;
+}
+
+
+.vote_btns
+{
+text-align: center;
+  margin-top: 10px;
+  margin-right: 20px;
+ }
+
+.vote_btn
+{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.vote_like
+{
+background-color:#63b96b;
+border: none;
+}
+.vote_dislike
+{
+background-color: #FC9A9A;
+}
+footer
+{
+   background-color: #f0f0f0;
+   border-bottom: 1px solid #E90707;
+   border-top: 1px solid #E90707;
+   text-align: center;
+}
+.rgpd
+{
+  font-size: 14px;
+}
+
+a
+{
+  color:#000000;
+  text-decoration: none;
+}
+a:hover
+{
+  text-decoration: underline;
+  color:#E90707;
+}
