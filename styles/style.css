@@ -7,6 +7,9 @@
 
 header
 {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
   background-color: #f0f0f0;
   padding-bottom: 7px;
   border-bottom: 3px double #E90707;
@@ -17,15 +20,14 @@ header
 {
   text-align: center;
 }
-
-
-
-.actor_description
+/* Mise en forme de l'ensemble du formulaire*/
+#formulaire
 {
-  display:flex;
-  flex-direction: column;
+display:flex;
+flex-direction: column;
+align-content: stretch;
+text-align: center;
 }
-
 .champ_saisie
 {
 width: 100%;
@@ -36,59 +38,60 @@ height: 30px;
 border-radius: 5px;
 box-shadow: 3px 3px 5px silver;
 }
-
 .champ_saisie:hover
 {
   cursor: pointer;
 }
 
 
-label
+
+/* Mise en forme de la page de présentation des acteurs*/
+.introduction
+{text-align: center;}
+
+.text_intro
 {
-  font-weight: bold;
+  text-align: justify;
 }
-
-
-#formulaire
-{
-display:flex;
-flex-direction: column;
-align-content: stretch;
-text-align: center;
-}
-
-}
-
-#presentation
-{
-  display: flex;
-  
-}
-
 #illustration
 {
 text-align: center;
 }
-.actor
-{
- display: flex; 
- flex-direction: column;
-
-}
-
-.img_actor
-{
-  text-align: center;
-  width: 10%;
-  height: auto;
-}
 .actors_list
 {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+ align-items:center;
 }
+
+.list_actors
+{
+display: flex;
+justify-content: space-around;
+align-content: left;
+align-items: center;
+max-width: 100%;
+border: 1px solid black;
+height: 10%;
+margin-bottom: 10px;
+padding: 15px;
+background-color:#FEF8F0;
+border-radius: 5px;
+box-shadow: 3px 3px 5px silver;
+}
+
+.actor_logo
+{
+  width: 8%;
+  height: auto;
+  
+}
+
 
 .actor_description
 {
+  display;flex;
+  flex-direction: column;
   text-align: justify;
 }
 

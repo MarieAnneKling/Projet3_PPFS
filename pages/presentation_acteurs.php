@@ -19,7 +19,7 @@ session_start();
                 <h1>Présentation du groupement Banque Assurance Français</h1>        
                 
                 <section id="presentation">
-                <p>Le Groupement Banque Assurance Français (GBAF) est une fédération représentant les 6 grands groupes français : </p>
+                <p class= "introduction">Le Groupement Banque Assurance Français (GBAF) est une fédération représentant les 6 grands groupes français : </p>
                 <p><div class="actors_list">
                     <table>
                         <tr>
@@ -39,7 +39,7 @@ session_start();
                     </table>
                 </div>
                 </p>
-                <p>Même s’il existe une forte concurrence entre ces entités, elles vont toutes travailler de la même façon pour gérer près de 80 millions de comptes sur le territoire national.
+                <p class="text_intro">Même s’il existe une forte concurrence entre ces entités, elles vont toutes travailler de la même façon pour gérer près de 80 millions de comptes sur le territoire national.</br>
                 Le GBAF est le représentant de la profession bancaire et des assureurs sur tous les axes de la réglementation financière française. Sa mission est de promouvoir l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des pouvoirs publics.</p>
                 </section>
             
@@ -50,42 +50,33 @@ session_start();
                 <section id="actors">    
                 <h2>Présentation des acteurs</h2><br/>
                 
-                <p>Texte acteurs et partenaires</p> 
-                <ul>
-                    <div class= "list_actors">
-
-
+                <p class="actors_text">Texte acteurs et partenaires</p> 
+            
+                   
                     <?php
-
                     if(isset($_SESSION['message']))
                     {
                         echo '<p style="color:green">'.$_SESSION['message'].'</p>';
                      }
                     $requete = $bdd->query('SELECT * FROM actors ORDER BY actor_name');
                     while ($donnees = $requete->fetch()) 
-                   
                     { 
-
-                        ?>
-
-                    <img class="img_actor" src= <?php echo $donnees["logo"];?>>
-                    <div class="text_actor">
+                    ?>
+                    <div class= "list_actors">
+                        <img src= <?php echo $donnees["logo"];?> class="actor_logo"/>
                         <h3> <?php echo $donnees["actor_name"];?></h3>
-                        <p class="description"><?php echo substr($donnees["description"],0,100);?></p>
-                    <div/>
-                    <div class="bouton_suite">
-                    <a href="page_acteur.php?id_actor=<?php echo $donnees["id_actor"];?>">
-                    <input type="submit" value="Afficher la suite"></a></div>
-                    
+                        <?php echo substr($donnees["description"],0,70);?>
+                        <a href="page_acteur.php?id_actor=<?php echo $donnees["id_actor"];?>">
+                        <input type="submit" class="button_suite" value="Afficher la suite"></a></p>
+                        
+                    </div>
                     <?php
-                    }
-                    $requete->closeCursor();        
-                    ?>  
-                    </div>  
-
+                    }  
+                    $requete->closeCursor(); 
+                    ?>     
                 </section>   
 
-          </ul>    
+         
 
      	<?php include("../communs/Footer.php");?>
           

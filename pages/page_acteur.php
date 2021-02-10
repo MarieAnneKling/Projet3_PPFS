@@ -19,6 +19,7 @@ session_start();
                       
         <section id="actor_presentation">
             <div class= "actor">
+            
             <?php
             if (isset($_GET['id_actor']))
             {
@@ -30,10 +31,24 @@ session_start();
 
             echo '<img class="img_actor" src='.$donnees["logo"].'>';
             echo '<h2>' .$donnees["actor_name"]. '</h2>' ; ?>
-            <div class="actor_description"><?php echo '<p>' .$donnees["description"]. '</p></div>';
+            <div class="actor_description"><?php echo '<p>' .$donnees["description"]. '</p></div>'; 
             }
             ?>
+            
           </section>
+
+          <section id="votes">
+           <!--Total des votes pour l'acteur--> 
+           
+                       
+              <div class="vote_btns">
+              <a href="..\processus\insert_votes.php?id_user=$id_user&id_actor=$id_actor&vote=1">
+              <button class="vote_btn vote_like"><i class="far fa-thumbs-up"></i></a><?php echo "1";?> 
+              </button>
+                       
+              <a href="..\processus\insert_votes.php?id_user=$id_user&id_actor=$id_actor&vote=0">
+              <button class="vote_btn vote_dislike"><i class="far fa-thumbs-down"></i></a><?php echo "2";?></button>
+              </div>
 
           <!--insertion d'un commentaire à l'aide d'un formulaire-->
           <section id="insert_comment">
@@ -53,22 +68,12 @@ session_start();
             ));
             while ($donnees = $req->fetch())
             {
-            echo $donnees['forname']; 
-            echo $donnees['date_add'];
-            echo nl2br(htmlspecialchars($donnees['post']));  
+            echo '<div class=view_comm><div class="forname">'.$donnees['forname'].'</div>'; 
+            echo '<div class="date_comment">Le '.$donnees['date_add'].'</div>';
+            echo '<div class="comment">'.nl2br(htmlspecialchars($donnees['post'])).'</div></div>';  
             }   
             ?>
-<section id="votes">
-           <!--Insertion d'un vote--> 
-                      
-            <div class="vote_btns">
-              <a href="..\processus\insert_votes.php?id_user=$id_user&id_actor=$id_actor&vote=1">
-              <button class="vote_btn vote_like"><i class="far fa-thumbs-up"></i></a>
-              </button>
-                           
-              <a href="..\processus\insert_votes.php?id_user=$id_user&id_actor=$id_actor&vote=0">
-              <button class="vote_btn vote_dislike"><i class="far fa-thumbs-down"></i></a></button>
-            </div>
+
                         
 
 </section>   

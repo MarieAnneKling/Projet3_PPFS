@@ -5,6 +5,7 @@
 
 	if (isset($_POST['post']))
 	{
+		
 		$id_user = $_SESSION['id_user'];
 		$id_actor = $_SESSION['id_actor'];
 		$post = htmlspecialchars($_POST['post']);
@@ -19,9 +20,6 @@
     	
             
     	header('Location:..\pages\page_acteur.php?id_actor=' . $id_actor);	
+		
 		}
-		else
-		{
-		echo 'erreur';
-	}
 ?>
