@@ -8,15 +8,7 @@
 		 $id_actor = $_SESSION['id_actor'];
 		 $vote = $_GET['vote'];		
 		 
-		 /*$req = $bdd->prepare('SELECT COUNT(*) FROM votes WHERE id_actor = :id_actor && id_user = :id_user');
-		 $req->execute(array(
-			 'id_user' => $id_user,
-			 'id_actor' => $id_actor,
-			 ));
-		 $vote_nb=$req->fetch();
-		 		 
-		 if ($vote_nb == 0)
-		 {*/
+		 
 		   	$req = $bdd->prepare('INSERT INTO votes(id_user, id_actor,vote) VALUES(:id_user, :id_actor, :vote)');
     		$req->execute(array(
         	'id_user' => $id_user,

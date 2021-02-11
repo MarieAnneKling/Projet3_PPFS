@@ -51,14 +51,12 @@ session_start();
                 <h2>Présentation des acteurs</h2><br/>
                 
                 <p class="actors_text">Les produits et services bancaires sont nombreux et très variés.</br></br>
-Afin de renseigner au mieux les clients, les salariés des 340 agences des banques et assurances en France (agents, chargés de clientèle, conseillers financiers, etc.) recherchent sur Internet des informations portant sur des produits bancaires et des financeurs, entre autres.</br></br>
-Aujourd’hui, il n’existe pas de base de données pour chercher ces informations de manière fiable et rapide ou pour donner son avis sur les partenaires et acteurs du secteur bancaire, tels que les associations ou les financeurs solidaires.</br></br>
-Pour remédier à cela, le GBAF propose aux salariés des grands groupes français un point d’entrée unique, répertoriant un grand nombre d’informations sur les partenaires et acteurs du groupe ainsi que sur les produits et services bancaires et financiers.</br></br> 
-Chaque salarié pourra ainsi poster un commentaire et donner son avis.</br>
+                Afin de renseigner au mieux les clients, les salariés des 340 agences des banques et assurances en France (agents, chargés de clientèle, conseillers financiers, etc.) recherchent sur Internet des informations portant sur des produits bancaires et des financeurs, entre autres.</br></br>
+                Aujourd’hui, il n’existe pas de base de données pour chercher ces informations de manière fiable et rapide ou pour donner son avis sur les partenaires et acteurs du secteur bancaire, tels que les associations ou les financeurs solidaires.</br></br>
+                Pour remédier à cela, le GBAF propose aux salariés des grands groupes français un point d’entrée unique, répertoriant un grand nombre d’informations sur les partenaires et acteurs du groupe ainsi que sur les produits et services bancaires et financiers.</br></br> 
+                Chaque salarié pourra ainsi poster un commentaire et donner son avis.</br>
 
-</p> 
-                
-                   
+                </p> 
                     <?php
                     if(isset($_SESSION['message']))
                     {
@@ -68,6 +66,7 @@ Chaque salarié pourra ainsi poster un commentaire et donner son avis.</br>
                     while ($donnees = $requete->fetch()) 
                     { 
                     ?>
+                    
                     <div class= "list_actors">
                         <img src= <?php echo $donnees["logo"];?> class="actor_logo"/>
                         <h3> <?php echo $donnees["actor_name"];?></h3>

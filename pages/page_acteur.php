@@ -19,7 +19,7 @@ session_start();
                       
         <section id="actor_presentation">
             <div class= "actor">
-            
+           
             <?php
             if (isset($_GET['id_actor']))
             {
@@ -35,19 +35,33 @@ session_start();
             }
             ?> 
         </section>
-
+          
         <section id="votes">
            <!--Total des votes pour l'acteur--> 
-                                  
-              <div class="vote_btns">
-              <a href="..\processus\select_count.php?id_actor=$id_actor&vote=1">
-              <button class="vote_btn vote_like"><i class="far fa-thumbs-up"></i></a><?php echo ''/*$likes["vote"]*/;?> 
-              </button>
-                       
-              <a href="..\processus\select_count.php?id_actor=$id_actor&vote=0">
-              <button class="vote_btn vote_dislike"><i class="far fa-thumbs-down"></i></a><?php echo ''/*$dislikes["vote"]*/;?></button>
-              </div>
-         </section><br>
+           <?php
+           $req = $bdd->prepare('SELECT COUNT(*) AS nb_likes FROM votes WHERE id_actor = :id_actor && vote = 1');
+           $req->execute(array(
+          'id_actor'=>$id_actor
+           ));
+           $nb_likes = $req->fetch();
+          
+          $req = $bdd->prepare('SELECT COUNT(*) AS nb_likes FROM votes WHERE id_actor = :id_actor && vote = 0');
+          $req->execute(array(
+         'id_actor'=>$id_actor
+          ));
+          $nb_dislikes = $req->fetch();
+
+         
+          ?>
+          <div class="nb_votes">
+          <button class="nb_likes"><i class="far fa-thumbs-up"></i></a><?php echo $nb_likes['nb_likes'];?> 
+          </button>     
+          <button class="nb_dislikes"><i class="far fa-thumbs-down"></i></a><?php echo $nb_dislikes['nb_likes'];?></button>
+          </div>
+
+      
+         
+         </section></br>
                    
          <!--insertion d'un commentaire à l'aide d'un formulaire-->
         <section id="insert_comment">
