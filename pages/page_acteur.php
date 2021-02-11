@@ -50,8 +50,6 @@ session_start();
          'id_actor'=>$id_actor
           ));
           $nb_dislikes = $req->fetch();
-
-         
           ?>
           <div class="nb_votes">
           <button class="nb_likes"><i class="far fa-thumbs-up"></i></a><?php echo $nb_likes['nb_likes'];?> 
