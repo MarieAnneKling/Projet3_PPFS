@@ -80,9 +80,7 @@ session_start();
                     $requete->closeCursor(); 
                     ?>     
                 </section>   
-
-         
-
+       
      	<?php include("../communs/Footer.php");?>
           
     </body>
