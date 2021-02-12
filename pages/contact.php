@@ -12,7 +12,7 @@ session_start();
         <?php include("..\communs\header.php");?>
             <section>
                 <div id="formulaire">
-                    <form action="#" method="POST" >
+                    <form action="#" method="POST">
                     <div class="contact_form">
                         <p><label for="email">Votre adresse de messagerie:</label></br>
                         <input type="text" id="email" class="textarea" name="email" required/></p>
@@ -27,6 +27,7 @@ session_start();
                     </form>     
                 </div>
          </section>  
+       <!--Appel du fichier contenant le pied de page-->   
        <?php include("../communs/footer.php");?>
     </body>
  </html>

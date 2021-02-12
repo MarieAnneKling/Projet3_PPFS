@@ -4,20 +4,25 @@ session_start();
 
 <!DOCTYPE html>
 <html>
+
+<!-- lien vers la feuille de style associée-->
 <link rel="stylesheet" href="..\styles\style.css" />
     
     <head>
+        <!--Appel du fichier contenant les informations générales non affichées de la page-->
         <?php include("..\communs\head.php");?>
     </head>
 
     <body>        
+        <!--Appel du fichier contenant l'appel de la base de données-->
         <?php require ("..\communs\bdd_gbaf.php");?>
+        
+        <!--Appel du fichier contenant l'en-tête-->   
         <?php include("..\communs\header.php");?>
 
-         <div id="container">         
-
+        <!-- Début de la partie présentation du GBAF-->
+        <div id="container">         
                 <h1>Présentation du groupement Banque Assurance Français</h1>        
-                
                 <section id="presentation">
                 <p class= "introduction">Le Groupement Banque Assurance Français (GBAF) est une fédération représentant les 6 grands groupes français : </p>
                 <p><div class="actors_list">
@@ -47,6 +52,7 @@ session_start();
                 <img src="..\images\Strasbourg_Banque-de-France.jpg" alt="Strasbourg_Banque-de-France"/></div></p> 
                 </section>
                 
+                <!-- Partie concernant les acteurs du GBAF-->
                 <section id="actors">    
                 <h2>Présentation des acteurs</h2><br/>
                 
@@ -55,7 +61,8 @@ session_start();
                 Aujourd’hui, il n’existe pas de base de données pour chercher ces informations de manière fiable et rapide ou pour donner son avis sur les partenaires et acteurs du secteur bancaire, tels que les associations ou les financeurs solidaires.</br></br>
                 Pour remédier à cela, le GBAF propose aux salariés des grands groupes français un point d’entrée unique, répertoriant un grand nombre d’informations sur les partenaires et acteurs du groupe ainsi que sur les produits et services bancaires et financiers.</br></br> 
                 Chaque salarié pourra ainsi poster un commentaire et donner son avis.</br>
-
+                
+                <!--Présentation de la liste des acteurs grâce à une requête préparée sur la base de données-->
                 </p> 
                     <?php
                     if(isset($_SESSION['message']))
@@ -65,17 +72,15 @@ session_start();
                     $requete = $bdd->query('SELECT * FROM actors ORDER BY actor_name');
                     while ($donnees = $requete->fetch()) 
                     { 
-                    ?>
-                    
-                    <div class= "list_actors">
+                        ?>
+                        <div class= "list_actors">
                         <img src= <?php echo $donnees["logo"];?> class="actor_logo"/>
                         <h3> <?php echo $donnees["actor_name"];?></h3>
                         <?php echo substr($donnees["description"],0,70);?>
                         <a href="page_acteur.php?id_actor=<?php echo $donnees["id_actor"];?>">
                         <input type="submit" class="button_suite" value="Afficher la suite"></a></p>
-                        
-                    </div>
-                    <?php
+                        </div>
+                        <?php
                     }  
                     $requete->closeCursor(); 
                     ?>     

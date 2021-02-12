@@ -1,9 +1,12 @@
 
 <?php
-session_start();
+session_start();  /* On démarre la session avant toute chose*/
 ?>
-<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html> <!--indique qu'il s'agit d'une page web html-->
+<html>          <!-- balise principale, qui englobe tout le contenu de la page, refermé sur la dernière ligne-->
+
+<!-- lien vers la feuille de style associée-->
 <link rel="stylesheet" href="styles/style.css">
     <head>
         <!--Appel du fichier contenant les informations générales non affichées de la page--> 
@@ -13,6 +16,7 @@ session_start();
     <body>
     <!--Appel du fichier contenant l'en-tête-->
     <?php include("communs/header.php");?>
+    
         <!--formulaire de connexion à l'extranet et lien vers les pages inscription et mot de passe oublié-->
         <section>
             <div id="formulaire">

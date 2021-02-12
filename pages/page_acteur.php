@@ -1,31 +1,32 @@
 <?php
-session_start();
+session_start(); 
 ?>
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="../styles/style.css">
-  <head>
+  <!-- lien vers la feuille de style associée-->
+  <link rel="stylesheet" href="../styles/style.css">
+    <head>
       <!--Appel du fichier contenant les informations générales non affichées de la page--> 
       <?php include("../communs/head.php");?>
-  </head>
+    </head>
  
-  <body>   
-    <!--Appel de la base de données-->
-    <?php require ("../communs/bdd_gbaf.php");?>     
+    <body>   
+      <!--Appel du fichier contenant l'appel de la base de données-->
+      <?php require ("../communs/bdd_gbaf.php");?>     
       
-    <!--Appel du fichier contenant l'en-tête-->  
-    <?php include("../communs/header.php");?>
+      <!--Appel du fichier contenant l'en-tête-->  
+      <?php include("../communs/header.php");?>
       
-    <!-- début de la partie présentation des acteurs-->          
-    <section id="actor_presentation">
+      <!-- début de la partie présentation des acteurs-->          
+      <section id="actor_presentation">
             
       <!--Liste des acteurs obtenue grâce à une requête sur la base de données--> 
-      <div class= "actor">
-      <?php
-      if (isset($_GET['id_actor']))
+        <div class= "actor">
+        <?php
+      if (isset($_GET['id_actor'])) /*Si l'information de l'id_actor a été récupérée par l'URL*/
       {
-        $_SESSION['id_actor'] = $_GET['id_actor'];
+        $_SESSION['id_actor'] = $_GET['id_actor']; /* la variable de session est égale 
         $id_actor=$_SESSION['id_actor'];
         $req=$bdd->prepare('SELECT * FROM actors WHERE id_actor = :id_actor');
         $req->execute(array('id_actor'=>$id_actor));
@@ -35,10 +36,10 @@ session_start();
       <div class="actor_description"><?php echo '<p>' .$donnees["description"]. '</p></div>'; 
       }
       ?> 
-    </section>
+      </section>
           
-    <!--Affichage du total des votes likes et dislikes pour l'acteur grâce à une requête sur la base de données--> 
-    <section id="votes">
+      <!--Affichage du total des votes likes et dislikes pour l'acteur grâce à une requête sur la base de données--> 
+      <section id="votes">
       <?php
       $req = $bdd->prepare('SELECT COUNT(*) AS nb_likes FROM votes WHERE id_actor = :id_actor && vote = 1');
       $req->execute(array(
@@ -52,20 +53,20 @@ session_start();
         ));
       $nb_dislikes = $req->fetch();
       ?>
-      <div class="nb_votes">
-        <button class="nb_likes"><i class="far fa-thumbs-up"></i></a><?php echo $nb_likes['nb_likes'];?></button>     
-        <button class="nb_dislikes"><i class="far fa-thumbs-down"></i></a><?php echo $nb_dislikes['nb_likes'];?></button>
-      </div>
-    </section></br>
+        <div class="nb_votes">
+          <button class="nb_likes"><i class="far fa-thumbs-up"></i></a><?php echo $nb_likes['nb_likes'];?></button>     
+          <button class="nb_dislikes"><i class="far fa-thumbs-down"></i></a><?php echo $nb_dislikes['nb_likes'];?></button>
+        </div>
+      </section></br>
                    
       <!--insertion d'un commentaire pour cet acteur à l'aide d'un formulaire-->
-        <section id="insert_comment">
-          <form action="..\processus\insert_comment.php" method="post">                
-            <div class="post"><label>Votre commentaire sur cet acteur<input type="text" placeholder="Saisissez votre commentaire" name="post" class="champ_saisie"></label></div>
-            <p><input type="submit" class="button" value="Validez votre commentaire"/></a></p>
-            </div>
-          </form>
-        </section>
+      <section id="insert_comment">
+        <form action="..\processus\insert_comment.php" method="post">                
+          <div class="post"><label>Votre commentaire sur cet acteur<input type="text" placeholder="Saisissez votre commentaire" name="post" class="champ_saisie"></label></div>
+          <p><input type="submit" class="button" value="Validez votre commentaire"/></a></p>
+          </div>
+        </form>
+      </section>
 
       <!--Insertion du vote pour cet acteur en cliquant sur les boutons likes et dilslikes-->  
       <section id="vote">
