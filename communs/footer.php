@@ -1,3 +1,4 @@
+<!-- le pied de page renvoie à deux pages-->
 <footer id="footer">
 	<p>
 		<a href="../pages/legal_mentions.php">Politique de confidentialité</a>
