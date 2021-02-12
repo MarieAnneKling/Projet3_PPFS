@@ -94,7 +94,7 @@ session_start();
         </section>  
           
         <!--Appel du fichier contenant le pied de page-->   
-        <?php include("..\communs\Footer.php");?>
+        <?php include("..\communs\footer.php");?>
           
     </body>
 </html>
