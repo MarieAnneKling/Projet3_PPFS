@@ -8,10 +8,11 @@
 			echo $_SESSION['forname'] . ' ' . $_SESSION['name']; 
 		?>
 		<!-- en cas de session connectée, des boutons dans l'entête permettent de modifier les informations personnelles, de se déconnecter et de retourner à la page d'accueil-->
-	</p>
-		<p><a href="..\pages\profil_index.php"><input type="submit" class="paramètres" value="Modifier mes informations personnelles"></a></p>
-		<p><a href="..\communs\deconnexion.php"><input type="submit" class="deconnexion" value="Se déconnecter"></a>
-		<a href="..\pages\presentation_acteurs.php"><input type="submit" class="page_presentation" value="Retourner à la page d'accueil"></a></p>
+		</p>
+		<p><a href="..\pages\presentation_acteurs.php"><input type="submit" class="page_presentation" value="Retourner à la page d'accueil"></a>
+		<a href="..\pages\profil_index.php"><input type="submit" class="paramètres" value="Modifier mes informations personnelles"></a>
+		<a href="..\communs\deconnexion.php"><input type="submit" class="deconnexion" value="Se déconnecter"></a>
+		</p>
 		<div class ="titre_gbaf">Le Groupement Banque Assurance Français</div>
   		<?php
 		}

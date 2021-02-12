@@ -4,18 +4,18 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="..\styles\style.css">
+<link rel="stylesheet" href="../styles/style.css">
   <head>
       <!--Appel du fichier contenant les informations générales non affichées de la page--> 
-      <?php include("..\communs\head.php");?>
+      <?php include("../communs/head.php");?>
   </head>
  
   <body>   
     <!--Appel de la base de données-->
-    <?php require ("..\communs\bdd_gbaf.php");?>     
+    <?php require ("../communs/bdd_gbaf.php");?>     
       
     <!--Appel du fichier contenant l'en-tête-->  
-    <?php include("..\communs\header.php");?>
+    <?php include("../communs/header.php");?>
       
     <!-- début de la partie présentation des acteurs-->          
     <section id="actor_presentation">
@@ -94,7 +94,7 @@ session_start();
         </section>  
           
         <!--Appel du fichier contenant le pied de page-->   
-        <?php include("..\communs\footer.php");?>
+        <?php include("../communs/footer.php");?>
           
     </body>
 </html>
