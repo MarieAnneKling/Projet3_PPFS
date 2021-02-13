@@ -33,7 +33,14 @@ session_start();  /* On démarre la session avant toute chose*/
             </br>               
         </section>
                 
-        <!--Appel du fichier contenant le pied de page-->   
-        <?php include("communs/footer.php");?>
+    <!-- le pied de page renvoie à deux pages-->
+    <footer id="footer">
+	<p>
+		<a href="pages/legal_mentions.php">Politique de confidentialité</a>
+		|
+		<a href="pages/contact.php">Contact</a>
+	</p>
+    </footer>
+        
     </body>
 </html>

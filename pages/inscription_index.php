@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <!-- lien vers la feuille de style associée pour la mise en forme de la page -->
@@ -50,11 +46,11 @@ session_start();
 
                 </br>
               </form> 
-    <!-- Fin de la partie formulaire-->
-
           </div>
         </section>
-    <!--Appel du fichier contenant le pied de page-->   
-       <?php include("../communs/footer.php");?>            
+      <!-- Fin de la partie formulaire-->
+      
+      <!--Appel du fichier contenant le pied de page-->   
+      <?php include("../communs/footer.php");?>            
     </body>
 </html>

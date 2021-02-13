@@ -1,7 +1,6 @@
 <?php
-session_start();
+session_start(); //Démarrage de session avant toute chose
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -62,31 +61,12 @@ session_start();
                 Pour remédier à cela, le GBAF propose aux salariés des grands groupes français un point d’entrée unique, répertoriant un grand nombre d’informations sur les partenaires et acteurs du groupe ainsi que sur les produits et services bancaires et financiers.</br></br> 
                 Chaque salarié pourra ainsi poster un commentaire et donner son avis.</br>
                 
-                <!--Présentation de la liste des acteurs grâce à une requête préparée sur la base de données-->
-                </p> 
-                    <?php
-                    if(isset($_SESSION['message']))
-                    {
-                        echo '<p style="color:green">'.$_SESSION['message'].'</p>';
-                     }
-                    $requete = $bdd->query('SELECT * FROM actors ORDER BY actor_name');
-                    while ($donnees = $requete->fetch()) 
-                    { 
-                        ?>
-                        <div class= "list_actors">
-                        <img src= <?php echo $donnees["logo"];?> class="actor_logo"/>
-                        <h3> <?php echo $donnees["actor_name"];?></h3>
-                        <?php echo substr($donnees["description"],0,70);?>
-                        <a href="page_acteur.php?id_actor=<?php echo $donnees["id_actor"];?>">
-                        <input type="submit" class="button_suite" value="Afficher la suite"></a></p>
-                        </div>
-                        <?php
-                    }  
-                    $requete->closeCursor(); 
-                    ?>     
+                <!--Appel du fichier contenant le traitement de la liste des acteurs grâce à une requête préparée sur la base de données-->
+                <?php include("..\processus\acteurs_cible.php");?></p> 
+                    
                 </section>   
        
-     	<?php include("../communs/Footer.php");?>
+     	<?php include("../communs/footer.php");?>
           
     </body>
 </html>

@@ -1,18 +1,14 @@
-<?php
-session_start();
-$id_user=$_GET['id_user'];
-?>
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="..\styles\style.css" />
+<link rel="stylesheet" href="../styles/style.css" />
     <head>
-        <?php include("..\communs\head.php");?>
+        <?php include("../communs/head.php");?>
     </head>
 
     <body>
 
-        <?php include("..\communs\header.php");?>
+        <?php include("../communs/header.php");?>
          
         <section>
 
@@ -20,7 +16,7 @@ $id_user=$_GET['id_user'];
 
     <h2>Changez votre mot de passe</h2><br/>                   
  
-        <form action="..\processus\mdp_nouveau_cible.php" method="post" >
+        <form action="../processus/mdp_nouveau_cible.php" method="post" >
          <input type="hidden" name="id_user" id="id_user" value="<?php echo $id_user;?>" required ></p>
          <p><label for="new_password">Saisissez votre nouveau mot de passe</label><input type="text" name="new_password" id="new_password" class="champ_saisie" placeholder="Votre nouveau mot de passe" value="" required >
          <p><input type="submit" name="submit" value="Valider"/></p>
@@ -29,7 +25,7 @@ $id_user=$_GET['id_user'];
           </div>
     </section>
                 
-     	<?php include("..\communs\Footer.php");?>
+     	<?php include("../communs/footer.php");?>
             
     </body>
 

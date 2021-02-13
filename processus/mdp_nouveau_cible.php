@@ -15,9 +15,6 @@
         'id_user' => $id_user,
         'new_password' =>$password
     ));
-  
-    //Redirection vers la page de présentation des acteurs
-    echo 'votre mot de passe a bien été modifié';
-    echo '<a href = "..\index.php"> ' . ' Cliquez ici pour retourner à la page d\'accueil</a>';
-  
-?>
+  ?>
+    <!--Redirection vers la page de présentation des acteurs-->
+        <a href = "../index.php"><input type="submit" class="retour_page" value="Votre mot de passe a bien été modifié.  Cliquez ici pour retourner à la page de connexion"></a></p>

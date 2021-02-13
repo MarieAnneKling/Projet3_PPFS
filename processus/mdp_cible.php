@@ -32,9 +32,9 @@ session_start();
       }
       else
       {
-      echo 'La réponse à la question secrète est fausse';
-      echo '<a href = "..\index.php"> ' . ' Cliquez ici pour retourner à la page d\'accueil</a>';
-      }
-  
-}
-?>         
+      ?>
+      <a href = "../index.php"><input type="submit" class="retour_page" value="La réponse à la question secrète est fausse.  Cliquez ici pour retourner à la page de connexion"></a></p> 
+    <?php
+    }
+  }
+?>      

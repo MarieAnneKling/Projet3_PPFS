@@ -1,15 +1,14 @@
-<?php
-session_start();
-?>
+
 <!-- Formulaire de contact-->
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="..\styles\style.css" />
+
+<link rel="stylesheet" href="../styles/style.css" /><!-- lien vers la feuille de style associée-->
     <head>
-        <?php include("..\communs\head.php");?>
-    </head>
+        <?php include("../communs/head.php");?><!--Appel du fichier contenant les informations générales non affichées de la page-->
+    </head> 
     <body>
-        <?php include("..\communs\header.php");?>
+        <?php include("../communs/header.php");?><!--Appel du fichier contenant l'en-tête-->
             <section>
                 <div id="formulaire">
                     <form action="#" method="POST">
@@ -26,6 +25,7 @@ session_start();
                     <p><button type="submit" class="button">Envoyer</button></p>    
                     </form>     
                 </div>
+                <a href = "..\index.php"><input type="submit" class="retour_page" value="Cliquez ici pour retourner sur la page de connexion"></a></p>
          </section>  
        <!--Appel du fichier contenant le pied de page-->   
        <?php include("../communs/footer.php");?>

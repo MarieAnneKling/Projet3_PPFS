@@ -26,9 +26,8 @@
           'question' => $question,
           'response' => $response
           ));
-         echo 'Votre inscription est à présent effective';
-         echo '<a href = "..\index.php"> ' . ' Cliquez ici pour vous connecter à votre espace extranet du GBAF</a>';         
-      //retour vers la page de connexion
-      
+         ?> <!--retour vers la page de connexion après confirmation de l'inscription-->
+         <a href = "..\index.php"><input type="submit" class="retour_page" value="Votre inscription est à présent effective.  Cliquez ici pour vous connecter à votre espace extranet du GBAF"></a></p>
+        <?php   
     }
   }

@@ -1,8 +1,8 @@
 <?php
-session_start(); 
-?>
-
-<!DOCTYPE html>
+ session_start();
+ ?>
+ 
+ <!DOCTYPE html>
 <html>
   <!-- lien vers la feuille de style associée-->
   <link rel="stylesheet" href="../styles/style.css">
@@ -26,7 +26,7 @@ session_start();
         <?php
       if (isset($_GET['id_actor'])) /*Si l'information de l'id_actor a été récupérée par l'URL*/
       {
-        $_SESSION['id_actor'] = $_GET['id_actor']; /* la variable de session est égale 
+        $_SESSION['id_actor'] = $_GET['id_actor']; /* la variable de session est égale */
         $id_actor=$_SESSION['id_actor'];
         $req=$bdd->prepare('SELECT * FROM actors WHERE id_actor = :id_actor');
         $req->execute(array('id_actor'=>$id_actor));
@@ -68,7 +68,7 @@ session_start();
         </form>
       </section>
 
-      <!--Insertion du vote pour cet acteur en cliquant sur les boutons likes et dilslikes-->  
+      <!--Insertion du vote pour cet acteur en cliquant sur les boutons likes et dislikes-->  
       <section id="vote">
         <div class="vote_btns">
           <a href="..\processus\insert_votes.php?id_user=$id_user&id_actor=$id_actor&vote=1">Votez pour cet acteur

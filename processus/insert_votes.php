@@ -20,11 +20,13 @@
         	'id_user' => $id_user,
         	'id_actor' => $id_actor,
         	'vote' => $vote));
-			header('Location:..\pages\page_acteur.php?id_actor=' . $id_actor);
+			header('Location:../pages/page_acteur.php?id_actor=' . $id_actor);
 		   }
 		   else
 		   {
-			   echo "Vous avez déjà voté pour cet acteur";
+		?>
+		<a href = "../pages/presentation_acteurs.php"><input type="submit" class="retour_page" value="Vous avez déjà voté pour cet acteur.  Cliquez ici pour retourner sur la page d'accueil de l'extranet"></a></p>
+		<?php  
 		   }
-        	?>
+           ?>
 

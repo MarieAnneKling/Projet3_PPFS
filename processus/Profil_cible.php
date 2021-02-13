@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require '..\communs\bdd_gbaf.php';
 
 $id_user = $_SESSION['id_user'];
@@ -61,8 +62,5 @@ $id_user = $_SESSION['id_user'];
         'id_user' => $id_user,
         'new_response' =>$response
     ));
-
-echo 'Vos modifications ont bien été prises en compte';
-echo '<a href = "..\pages\presentation_acteurs.php"> ' . ' Cliquez ici pour retourner à l\'espace extranet du GBAF</a>';
-?>
-
+    ?>
+    <a href = "..\pages\presentation_acteurs.php"><input type="submit" class="retour_page" value="Vos modifications ont bien été prises en compte.  Cliquez ici pour retourner à l'accueil du GBAF"></a></p>

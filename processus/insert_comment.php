@@ -27,12 +27,12 @@
     	$req->closeCursor();
     	          
     	header('Location:..\pages\page_acteur.php?id_actor=' . $id_actor);	
-		
-			  }
-			  else
-			  {
-				  echo "Vous avez déjà commenté cet acteur";
-			  }
-			 
-			}	
-?>
+		}
+		else
+		{
+		?>
+		<a href = "../pages/presentation_acteurs.php"><input type="submit" class="retour_page" value="Vous avez déjà commenté cet acteur.  Cliquez ici pour retourner sur la page d'accueil de l'extranet"></a></p>
+		<?php  
+		}
+	}
+		?>

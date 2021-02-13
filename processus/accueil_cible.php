@@ -33,8 +33,9 @@ session_start();
     
       else
       {
-      echo 'Le mot de passe ou identifiant est faux';
-      echo '<a href = "..\index.php"> ' . ' Cliquez ici pour retourner à la page d\'accueil</a>';
+        ?>
+        <a href = "..\index.php"><input type="submit" class="retour_page" value="Le mot de passe ou identifiant est faux.  Cliquez ici pour retourner à la page d'accueil de l'extranet"></a></p>
+        <?php
       }
     }
 ?>      
