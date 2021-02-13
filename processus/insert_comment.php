@@ -1,14 +1,16 @@
  <?php
  session_start();
  
- require ('..\communs\bdd_gbaf.php');
+ require ('..\communs\bdd_gbaf.php');//Appel de la base de données
  
  if (isset($_POST['post']))
  {
+	// Création des variables de session 
 	$id_user = $_SESSION['id_user'];
 	$id_actor = $_SESSION['id_actor'];
 	$post = htmlspecialchars($_POST['post']);
     
+	// Récupération du nombre de commentaires de l'utilisateur pour l'acteur dans la base de données, avec la création d'une variable nb_posts
 	$req = $bdd->prepare('SELECT COUNT(*) AS nb_posts FROM posts WHERE id_actor = :id_actor && id_user = :id_user');
 			$req->execute(array(
 			 'id_actor'=>$id_actor,
@@ -25,7 +27,8 @@
         'post' => htmlspecialchars($post)
         ));
     	$req->closeCursor();
-    	          
+    	 /* s'il l'utilisateur n'a pas envore commenté cet acteur, lorsqu'il valide son commentaire, son vote est inséré dans la base de données
+		 sinon, le message "vous avez déjà commenté cet acteur" s'affiche, et il est redirigé vers la page de présentation des acteurs*/         
     	header('Location:..\pages\page_acteur.php?id_actor=' . $id_actor);	
 		}
 		else

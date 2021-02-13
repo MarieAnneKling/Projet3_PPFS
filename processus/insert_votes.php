@@ -1,11 +1,14 @@
  <?php
  session_start();
 
-	require ('..\communs\bdd_gbaf.php');
-		 $id_user = $_SESSION['id_user'];
+	require ('..\communs\bdd_gbaf.php');//Appel de la base de données
+
+		 // Création des variables de session
+		 $id_user = $_SESSION['id_user']; 
 		 $id_actor = $_SESSION['id_actor'];
 		 $vote = $_GET['vote'];		
-		 		 
+		 
+		 // Récupération du nombre de vote de l'utilisateur pour l'acteur dans la base de données, avec la création d'une variable nb_votes
          $req = $bdd->prepare('SELECT COUNT(*) AS nb_votes FROM votes WHERE id_actor = :id_actor && id_user = :id_user');
          $req->execute(array(
           'id_actor'=>$id_actor,
@@ -13,7 +16,12 @@
 		   ));
            $nb_votes = $req->fetch();
 		   $vote_exist = $nb_votes['nb_votes'];
-		   if($vote_exist == 0)
+		   
+		 
+		 /* s'il l'utilisateur n'a pas envore voté pour cet acteur, lorsqu'il clique sur l'icône choisi, son vote est inséré dans la base de données
+		 sinon, le message "vous avez déjà voté pour cet acteur" s'affiche, et il est redirigé vers la page de présentation des acteurs*/
+		 
+		 if($vote_exist == 0)
 		   {
 			$req = $bdd->prepare('INSERT INTO votes(id_user, id_actor,vote) VALUES(:id_user, :id_actor, :vote)');
     		$req->execute(array(

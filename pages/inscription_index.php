@@ -10,10 +10,10 @@
     <body>
       <!--Appel du fichier contenant l'en-tête--> 
       <?php include("../communs/header.php");?>
-    
-      <!--Début de la partie formulaire-->    
+        
       <section>
-        <div id="formulaire">
+      <!--Début de la partie formulaire--> 
+      <div id="formulaire">
             <h2>Inscrivez-vous à l'extranet GBAF</h2><br/>           
               
               <!--balise <form> pour indiquer qu'il s'agit d'un formulaire (!à ne pas oublier), méthod "post" car ne passe pas par l'URL (l'info est récupérée par le formulaire)
@@ -47,8 +47,8 @@
                 </br>
               </form> 
           </div>
-        </section>
-      <!-- Fin de la partie formulaire-->
+      <!-- Fin de la partie formulaire--> 
+      </section>
       
       <!--Appel du fichier contenant le pied de page-->   
       <?php include("../communs/footer.php");?>            

@@ -50,7 +50,8 @@ session_start(); //Démarrage de session avant toute chose
                 <section id="illustration">
                 <img src="..\images\Strasbourg_Banque-de-France.jpg" alt="Strasbourg_Banque-de-France"/></div></p> 
                 </section>
-                
+        <!-- Fin de la partie présentation du GBAF-->
+
                 <!-- Partie concernant les acteurs du GBAF-->
                 <section id="actors">    
                 <h2>Présentation des acteurs</h2><br/>

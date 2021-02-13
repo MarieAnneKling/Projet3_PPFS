@@ -9,7 +9,7 @@
 
   //Appel de la base de données :
   require '..\communs\bdd_gbaf.php';
-  
+    // Préparation et exécution de la requête à la base de données pour mettre à jour le nouveau mot de passe
     $req = $bdd->prepare('UPDATE account SET password = :new_password WHERE id_user = :id_user');
     $req->execute(array(
         'id_user' => $id_user,

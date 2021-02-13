@@ -12,7 +12,7 @@ session_start();
       $question = htmlspecialchars($_POST['question']); 
       $response = htmlspecialchars($_POST['response']);
 
-      //Récupération de la question secrète de l'utilisateur :
+      //Récupération de la question secrète de l'utilisateur grâce à une requête préparée:
       $req=$bdd->prepare('SELECT * FROM account WHERE username = :username'); 
       $req->execute(array(
         'username' => htmlspecialchars($username),
@@ -23,7 +23,8 @@ session_start();
       
       $id_user=$verif['id_user'];
       
-      // Comparaison de la réponse saisie ($_POST) avec la bdd - si la réponse à la questions secrète correspond
+      /*Comparaison de la réponse saisie ($_POST) avec la bdd - si la réponse à la questions secrète correspond, 
+      redirection vers la page permettant de saisir un nouveau mot de passe, sinon, message d'erreur et retour à la page de connexion*/
     
      if ($response === $verif['response']) 
      {

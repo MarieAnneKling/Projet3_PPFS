@@ -1,14 +1,15 @@
 <?php
 session_start();
 
-require '..\communs\bdd_gbaf.php';
+require '..\communs\bdd_gbaf.php';//Appel de la base de données :
 
-$id_user = $_SESSION['id_user'];
+$id_user = $_SESSION['id_user']; // création de la variable de session
 
-  //changement du nom d'utilisateur :
   
+  //Stockage des POSTS dans des htmlspecialchars + password_hash pour éviter la faille XSS :
   $username = htmlspecialchars($_POST['new_username']);
 
+    //changement du nom d'utilisateur grâce à une requête préparée Update sur la base de données :
     $req = $bdd->prepare('UPDATE account SET username =  :new_username WHERE id_user = :id_user ');
     $req->execute(array(
         'id_user' => $id_user,
@@ -63,4 +64,5 @@ $id_user = $_SESSION['id_user'];
         'new_response' =>$response
     ));
     ?>
-    <a href = "..\pages\presentation_acteurs.php"><input type="submit" class="retour_page" value="Vos modifications ont bien été prises en compte.  Cliquez ici pour retourner à l'accueil du GBAF"></a></p>
+    <!-- au clic sur le bouton de validation, un message de confirmation s'affiche et l'utilisateur est redirigé vers la page de présentation des acteurs -->
+    <a href = "..\pages\presentation_acteurs.php"><input type="submit" class="retour_page" value="Vos modifications ont bien été prises en compte.  Cliquez ici pour retourner à la page d'accueil du GBAF"></a></p>

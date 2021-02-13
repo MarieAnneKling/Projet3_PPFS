@@ -1,5 +1,5 @@
 <?php
- session_start();
+ session_start();//démarrage de la session avant toute chose
  ?>
  
  <!DOCTYPE html>
@@ -18,7 +18,7 @@
       <!--Appel du fichier contenant l'en-tête-->  
       <?php include("../communs/header.php");?>
       
-      <!-- début de la partie présentation des acteurs-->          
+      <!-- début de la partie présentation de l'acteur-->          
       <section id="actor_presentation">
             
       <!--Liste des acteurs obtenue grâce à une requête sur la base de données--> 
@@ -26,36 +26,38 @@
         <?php
       if (isset($_GET['id_actor'])) /*Si l'information de l'id_actor a été récupérée par l'URL*/
       {
-        $_SESSION['id_actor'] = $_GET['id_actor']; /* la variable de session est égale */
+        $_SESSION['id_actor'] = $_GET['id_actor']; // création des variables de session 
         $id_actor=$_SESSION['id_actor'];
-        $req=$bdd->prepare('SELECT * FROM actors WHERE id_actor = :id_actor');
+        $req=$bdd->prepare('SELECT * FROM actors WHERE id_actor = :id_actor'); // préparation et exécution de la requête à la base de données
         $req->execute(array('id_actor'=>$id_actor));
         $donnees=$req->fetch();
-        echo '<img class="img_actor" src='.$donnees["logo"].'>';
+        echo '<img class="img_actor" src='.$donnees["logo"].'>'; // affichage des résultats de la requête avec le logo, nom et description de l'acteur.
         echo '<h2>' .$donnees["actor_name"]. '</h2>' ; ?>
       <div class="actor_description"><?php echo '<p>' .$donnees["description"]. '</p></div>'; 
       }
       ?> 
       </section>
-          
-      <!--Affichage du total des votes likes et dislikes pour l'acteur grâce à une requête sur la base de données--> 
+      <!-- Fin de la partie présentation de l'acteur-->
+
+      <!-- Début de la partie Likes et commentaires grâce à des requêtes sur la base de données--> 
       <section id="votes">
+      <!-- Prération et exécution de 2 requêtes pour récupérer le nombre de likes et de dislikes dans la bdd-->
       <?php
-      $req = $bdd->prepare('SELECT COUNT(*) AS nb_likes FROM votes WHERE id_actor = :id_actor && vote = 1');
+      $req = $bdd->prepare('SELECT COUNT(*) AS nb_likes FROM votes WHERE id_actor = :id_actor && vote = 1'); // création de la variable nb_likes
       $req->execute(array(
         'id_actor'=>$id_actor
         ));
       $nb_likes = $req->fetch();
           
-      $req = $bdd->prepare('SELECT COUNT(*) AS nb_likes FROM votes WHERE id_actor = :id_actor && vote = 0');
+      $req = $bdd->prepare('SELECT COUNT(*) AS nb_dislikes FROM votes WHERE id_actor = :id_actor && vote = 0');// création de la variable nb_dislikes
       $req->execute(array(
         'id_actor'=>$id_actor
         ));
       $nb_dislikes = $req->fetch();
       ?>
-        <div class="nb_votes">
+        <div class="nb_votes"> <!--affichage du nombre de likes et de disllkes dans 2 boutons séparés avec l'icône du pouce-->
           <button class="nb_likes"><i class="far fa-thumbs-up"></i></a><?php echo $nb_likes['nb_likes'];?></button>     
-          <button class="nb_dislikes"><i class="far fa-thumbs-down"></i></a><?php echo $nb_dislikes['nb_likes'];?></button>
+          <button class="nb_dislikes"><i class="far fa-thumbs-down"></i></a><?php echo $nb_dislikes['nb_dislikes'];?></button>
         </div>
       </section></br>
                    
@@ -87,7 +89,7 @@
             'id_actor'=> $id_actor
             ));
           while ($donnees = $req->fetch())
-          {
+          { 
             echo '<div class=view_comm><div class="forname">Posté par '.' '.$donnees['forname'].' '.'le'.' '.$donnees['date_add'].'</div>'; 
             echo '<div class="comment">'.nl2br(htmlspecialchars($donnees['post'])).'</div></div>';  
           }   
